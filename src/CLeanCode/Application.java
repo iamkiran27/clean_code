@@ -1,5 +1,6 @@
 package CLeanCode;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 
 public  class Application implements ApplicationInterface{
@@ -20,11 +21,31 @@ public  class Application implements ApplicationInterface{
 
         db.makeConnection();
         System.out.println("Fetching Products......");
+=======
+import java.util.List;
+
+public class Application implements ApplicationInterface{
+    private List<Products> products;
+    private DataBase db;
+    Application(DataBase db)
+    {
+        this.db = db;
+
+        this.products = db.getProducts();
+
+    }
+    @Override
+    public void showProducts() {
+>>>>>>> f56b7cf9dd253dcd91d7be808c27d143a6efbf96
         //make conection to database and get all the relavent products objects and store them in the products list obj
         for(int i = 0 ; i < this.products.size(); i++)
         {
 
+<<<<<<< HEAD
          System.out.println(this.products.get(i).getProductDetails((Products) products.get(i)));
+=======
+            System.out.println(this.products.get(i).getProductDetails(products.get(i)));
+>>>>>>> f56b7cf9dd253dcd91d7be808c27d143a6efbf96
 
         }
     }
@@ -35,6 +56,7 @@ public  class Application implements ApplicationInterface{
         return  new CardPayment();
     }
 
+<<<<<<< HEAD
     @Override
     public void showOrderStatus() {
         System.out.println("Order placed successfully !!!");
@@ -51,12 +73,19 @@ public  class Application implements ApplicationInterface{
         DataBase db = new ApplicationDatabase();
         ProductServicesInterface ps = new ProductServices();
         AdminOperations admin = new AdminOperations(ps);
+=======
+
+    public static void main(String[] args) {
+        DataBase db = new ApplicationDatabase();
+        AdminOperations admin = new AdminOperations(db);
+>>>>>>> f56b7cf9dd253dcd91d7be808c27d143a6efbf96
 
         admin.addProduct("Sneakers", 1000, "Shoes","ADidas" );
         admin.addProduct("Apple Smart watch", 3000, "Smart Watch","Apple" );
         admin.addProduct("Torn Jeans", 2000, "Jeans","Levis" );
         admin.addProduct("Bag", 700, "Luggage","Paragon" );
 
+<<<<<<< HEAD
         Application amazon = new Application(db, ps);
         amazon.showProducts();
 
@@ -79,6 +108,21 @@ public  class Application implements ApplicationInterface{
         PaymentInterface p = amazon.selectPaymetOption();
         c.payment(p);
 
+=======
+        Application amazon = new Application(db);
+        amazon.showProducts();
+        Customer c = new Customer(db);
+        c.loginUser("abc.gmail.com", "1234");
+
+        c.addToCart();
+        c.orderItem();
+        c.addAddress("House no 1234, Street no 5");
+        PaymentInterface p = amazon.selectPaymetOption();
+        c.payment(p);
+
+
+
+>>>>>>> f56b7cf9dd253dcd91d7be808c27d143a6efbf96
     }
 
 

@@ -31,12 +31,10 @@ public abstract class Customer extends LoginUser implements CartInterface, Payme
         System.out.println("Product removed from the cart.");
     }
 
-
     public void orderItem() {
         orderProduct.orderItem();
 
     }
-
     public void addAddress(String address) {
 
         orderProduct.addAddress(address);
