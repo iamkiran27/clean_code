@@ -2,8 +2,7 @@ package CLeanCode;
 
 public abstract class Customer extends LoginUser implements CartInterface, PaymentSelection, SearchProductInterface, OrderInterface{
 
-    private String email;
-    private String password;
+
     protected boolean isPrime;
     private final OrderInterface orderProduct;
     private PaymentInterface payment;
